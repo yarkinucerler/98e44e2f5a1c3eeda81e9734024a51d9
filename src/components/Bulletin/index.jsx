@@ -1,18 +1,16 @@
-import React, {useEffect, useCallback, useState} from 'react'
+import React, {useCallback} from 'react'
 import {useDispatch} from "react-redux";
 
 import styled from "styled-components";
 
 import {getDateDifference} from "../../utils/date";
-import {matchBetByBranch, muks} from "../../configs/config"
+import {matchBetByBranch} from "../../configs/config"
 
 import {updateMatchInCoupon} from "../../store/slices/coupon.slice";
 
 import BulletinRow from "../BulletinRow";
 import BulletinFilter from "../BulletinFilter";
 import NoMatchBulletin from "../NoMatchBulletin";
-import {log} from "next/dist/server/typescript/utils";
-import {slugify} from "../../utils/slug";
 
 const Wrapper = styled.div``
 const GroupContainer = styled.div``
@@ -60,17 +58,16 @@ const MarketItem = styled.span`
 
 const Bulletin = ({data: program  = [], branchId}) => {
   const dispatch = useDispatch();
-
-  const handleSelectedMatch = ((match, muk, bet) => {
+  const handleSelectedMatch = useCallback((match, muk, bet) => {
     dispatch(updateMatchInCoupon({match, muk, bet}))
-  });
+  }, [dispatch]);
 
   return (
     <Wrapper>
       <BulletinFilter/>
       {
         program?.some(item => item.groupData.length) ? program.map((event) => (
-          !!event.groupData.length && <GroupContainer key={slugify(event.groupDate)}>
+          !!event.groupData.length && <GroupContainer key={event.groupDate}>
             <GroupHeader>
               <GroupTitle>{getDateDifference(event.groupDate)}</GroupTitle>
               <MarketGroup>

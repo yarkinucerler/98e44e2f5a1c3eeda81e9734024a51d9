@@ -4,14 +4,18 @@ import {fetchProgramDetails} from "../queries/program.query";
 
 import {groupByDate} from "../../utils/transform";
 
+const initialState = {
+  dates: [],
+  searchText: '',
+  oneMatch: false,
+  kingRatio: false,
+  loading: false,
+  error: null,
+}
+
 export const filterSlice = createSlice({
   name: 'filter',
-  initialState: {
-    dates: [],
-    searchText: '',
-    oneMatch: false,
-    kingRatio: false
-  },
+  initialState,
   reducers: {
     setFilterDate: (state, action) => {
       const index = state.dates.findIndex(item => item.id === action.payload);
@@ -34,7 +38,7 @@ export const filterSlice = createSlice({
     clearAllFilters: (state) => {
       state.dates.forEach(item =>  item.selected = false);
       state.searchText = '';
-      state.oneMatch = false
+      state.oneMatch = false;
       state.kingRatio = false;
     }
   },
@@ -45,14 +49,12 @@ export const filterSlice = createSlice({
       })
       .addCase(fetchProgramDetails.fulfilled, (state, action) => {
         state.loading = false;
-
-        state.dates = action.payload.data.map((item, index) => {
-          return {
-            id: ('dates-' + index + 1),
-            value: item.groupDate,
-            selected: false,
-          }
-        })
+        const dateList = action.payload.data.map(item => item.groupDate)
+        state.dates = dateList.map((item, index) => ({
+          id: index + 1,
+          value: item,
+          selected: false,
+        }));
       })
       .addCase(fetchProgramDetails.rejected, (state, action) => {
         state.loading = false;

@@ -2,7 +2,6 @@ import { useMemo } from "react";
 
 export const useMerged = (data, couponMatches) => {
   return useMemo(() => {
-
     return data.map(eventGroup => {
       const matchesOnDate = couponMatches.filter(match => match.matchFullDate === eventGroup.groupDate);
 

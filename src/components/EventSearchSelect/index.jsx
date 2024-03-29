@@ -100,6 +100,7 @@ const Menu = styled.ul`
 const EventSearchSelect = ({ data = [], action }) => {
   const [isVisible, setIsVisible] = useState(false);
   const menuRef = useRef(null);
+
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
@@ -130,7 +131,10 @@ const EventSearchSelect = ({ data = [], action }) => {
       {isVisible && (
         <Menu ref={menuRef}>
           {data?.map((item) => (
-            <li key={item.id} className={item.selected ? 'selected' : ''} onClick={() => handleClick(item.id)}>
+            <li key={item.id}
+                className={item.selected ? 'selected' : ''}
+                onClick={() => handleClick(item.id)}
+            >
               <span>{getDateDifference(item.value)}</span>
             </li>
           ))}

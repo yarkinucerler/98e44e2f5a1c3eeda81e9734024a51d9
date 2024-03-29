@@ -16,7 +16,6 @@ import Delete from '../../../public/images/icons/u_delete.svg';
 import EventSearchInput from "../EventSearchInput";
 import EventSearchSelect from "../EventSearchSelect";
 import EventSearchCheckbox from "../EventSearchCheckbox";
-import {clearAllListeners} from "@reduxjs/toolkit";
 
 const Wrapper = styled.div`
   display: flex;
@@ -65,6 +64,7 @@ const BulletinFilter = () => {
   const dates = useSelector((state) => state.filter.dates);
   const OneMatch = useSelector((state) => state.filter.oneMatch);
   const kingRatio = useSelector((state) => state.filter.kingRatio);
+
   return (<Wrapper>
     <Container>
       <EventSearchInput value={searchText} action={(value) => {

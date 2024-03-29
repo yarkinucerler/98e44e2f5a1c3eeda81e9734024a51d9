@@ -49,6 +49,7 @@ export const couponSlice = createSlice({
     },
     resetAllMatchInCoupon: (state) => {
       state.matches = []
+      state.selectedMultiplier = multiplier.start
     }
   },
 });

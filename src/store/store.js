@@ -1,8 +1,7 @@
-import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import { persistReducer } from 'redux-persist';
-
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+
 import branchReducer from "./slices/branch.slice";
 import programReducer from "./slices/program.slice";
 import filterReducer from "./slices/filter.slice";
@@ -10,6 +9,7 @@ import couponReducer from "./slices/coupon.slice";
 
 const persistConfig = {
   key: 'root',
+  version: 1,
   storage,
   whitelist: ['filter', 'coupon'],
 };

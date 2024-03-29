@@ -74,7 +74,7 @@ const Icon = styled.span`
         content: url("/images/icons/u_angel_arrow_up.svg");
     }
     &:after {
-      content: attr(data-totalMatch);
+      content: attr(data-totalmatch);
       top: -50%;
       left: 50%;
       width: 14px;
@@ -186,7 +186,7 @@ const Coupon = ({data = [], setIsModalOpen}) => {
           <Title>Kuponum</Title>
           <SubTitle>T. Oran: {!data.length ? Number("0").toFixed(2) : totalRatio.toFixed(2)}</SubTitle>
         </HeaderWrapper>
-        {(!data.length || !isExpand) && <Icon data-totalMatch={data.length} onClick={() => {setIsExpand(!isExpand)}}/>}
+        {(!data.length || !isExpand) && <Icon data-totalmatch={data.length} onClick={() => {setIsExpand(!isExpand)}}/>}
         {(!!data.length && isExpand) && <Badge onClick={() => {setIsExpand(!isExpand)}}>{data.length} Maç</Badge>}
       </Header>
       <Container aria-expanded={isExpand}>
