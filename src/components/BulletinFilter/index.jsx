@@ -60,10 +60,10 @@ const EventSearchIconWrapper= styled.div`
 
 const BulletinFilter = () => {
   const dispatch = useDispatch();
-  const searchText = useSelector((state) => state.filter.searchText);
   const dates = useSelector((state) => state.filter.dates);
   const OneMatch = useSelector((state) => state.filter.oneMatch);
   const kingRatio = useSelector((state) => state.filter.kingRatio);
+  const searchText = useSelector((state) => state.filter.searchText);
 
   return (<Wrapper>
     <Container>

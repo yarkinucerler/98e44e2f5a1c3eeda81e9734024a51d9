@@ -6,8 +6,6 @@ const handleSearchText = (arr, searchText) => {
     ...event,
     groupData: event.groupData.length && event.groupData.filter(item => {
       if (slugify(item.en).includes(slugify(searchText))) {
-        console.log(slugify(item.en));
-        console.log(slugify(searchText));
         return item
       }
     })
@@ -42,7 +40,6 @@ export const useFiltered = (data, filterState) => {
 
     if (filterState.searchText) {
       filteredData = handleSearchText(filteredData, filterState.searchText);
-      console.log('filteredData', filteredData);
     }
 
     const isDateSelected = filterState.dates.some(date => date.selected);
