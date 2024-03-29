@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Futbol",
+    "slug": "futbol",
+    "link": "/program/futbol"
+  },
+  {
+    "id": 2,
+    "name": "Basketbol",
+    "slug": "basketbol",
+    "link": "/program/basketbol"
+  },
+  {
+    "id": 5,
+    "name": "Tenis",
+    "slug": "tenis",
+    "link": "/program/tenis"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "name": "98e44e2f5a1c3eeda81e9734024a51d9",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yarkinucerler/98e44e2f5a1c3eeda81e9734024a51d9.git",
+  "author": "Yarkın ÜÇERLER <yarkinucerler@gmail.com>",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@fontsource/inter": "^5.0.17",
+    "@reduxjs/toolkit": "^2.2.2",
+    "axios": "^1.6.8",
+    "next": "13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "redux": "^5.0.1",
+    "redux-persist": "^6.0.0",
+    "styled-components": "^6.1.8"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "sass": "^1.72.0"
+  }
+}
